@@ -46,6 +46,8 @@ On.MouseButton1Down:connect(function()
 	repeat
 		oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532.807312, 183.837784, 149.856171)
+		wait (0.5)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(791.358337, 252.104965, 32.121006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		wait(1)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
 		wait(1)
@@ -54,6 +56,11 @@ On.MouseButton1Down:connect(function()
 		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("Swords")
 		wait (1)
 		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("Backpacks")
+		wait (1)
+		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("JumpBoosts")
+		wait (1)
+		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("BossBoosts")
+		
 	until shared.Enabled == false
 end)
 
@@ -74,7 +81,6 @@ Off.MouseButton1Down:connect(function()
 		wait(1)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
 		wait(1)
-		game:GetService("ReplicatedStorage").Events.Clicked:FireServer()
 	until shared.Enabled == false
 end)
 
