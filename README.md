@@ -46,7 +46,7 @@ On.MouseButton1Down:connect(function()
 	shared.Enabled = true
 	repeat
 		oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532.807312, 183.837784, 149.856171) - Vector3.new(0, -10, 0)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532.807312, 183.837784, 149.856171) - Vector3.new(0, -7, 0)
 		wait (0.5)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
 		wait(0.5)
