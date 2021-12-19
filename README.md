@@ -9,6 +9,7 @@ local By = Instance.new("TextLabel")
 local On = Instance.new("TextButton")
 local Off = Instance.new("TextButton")
 local discord = Instance.new("TextButton")
+local risky = Instance.new("TextButton")
 
 --Properties:
 
@@ -47,18 +48,16 @@ On.MouseButton1Down:connect(function()
 		oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532.807312, 183.837784, 149.856171)
 		wait (0.5)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(791.358337, 252.104965, 32.121006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-		wait(1)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-		wait(1)
+		wait(0.5)
 		game:GetService("ReplicatedStorage").Events.Clicked:FireServer()
-		wait (1)
+		wait (0)
 		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("Swords")
-		wait (1)
+		wait (0)
 		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("Backpacks")
-		wait (1)
+		wait (0)
 		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("JumpBoosts")
-		wait (1)
+		wait (0)
 		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("BossBoosts")
 		
 	until shared.Enabled == false
@@ -87,7 +86,7 @@ end)
 discord.Name = "discord"
 discord.Parent = Main
 discord.BackgroundColor3 = Color3.fromRGB(41, 44, 42)
-discord.Position = UDim2.new(-0.00487804879, 0, 1, 0)
+discord.Position = UDim2.new(0, 0, 1.17482519, 0)
 discord.Size = UDim2.new(0, 206, 0, 50)
 discord.Font = Enum.Font.SourceSans
 discord.Text = "join the discord"
@@ -120,3 +119,38 @@ local requestfunc = syn and syn.request or http and http.request or http_request
 			end
 		end)
 	end)
+	
+	-- you can easily die from this
+risky.Name = "risky"
+risky.Parent = Main
+risky.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+risky.Position = UDim2.new(-0.00487804879, 0, 1, 0)
+risky.Size = UDim2.new(0, 206, 0, 50)
+risky.Font = Enum.Font.SourceSans
+risky.Text = "Later Game AutoFarm (u can die)"
+risky.TextColor3 = Color3.fromRGB(0, 0, 0)
+risky.TextSize = 14.000
+risky.MouseButton1Click:connect(function()
+risky.MouseButton1Down:connect(function()
+		shared.Enabled = true
+		repeat
+			oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532.807312, 183.837784, 149.856171)
+			wait (0.5)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(791.358337, 252.104965, 32.121006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			wait(1)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+			wait(1)
+			game:GetService("ReplicatedStorage").Events.Clicked:FireServer()
+			wait (1)
+			game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("Swords")
+			wait (1)
+			game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("Backpacks")
+			wait (1)
+			game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("JumpBoosts")
+			wait (1)
+			game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("BossBoosts")
+
+		until shared.Enabled == false
+	end)
+end)
