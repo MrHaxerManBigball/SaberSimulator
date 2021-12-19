@@ -135,20 +135,20 @@ risky.MouseButton1Click:connect(function()
 		shared.Enabled = true
 		repeat
 			oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532.807312, 183.837784, 149.856171)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532.807312, 183.837784, 149.856171) - Vector3.new(0, -10, 0)
 			wait (0.5)
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(791.358337, 252.104965, 32.121006, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-			wait(1)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(791.358337, 252.104965, 32.121006, 1, 0, 0, 0, 1, 0, 0, 0, 1) - Vector3.new(0, 7, 0)
+			wait(2)
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-			wait(1)
+			wait(0)
 			game:GetService("ReplicatedStorage").Events.Clicked:FireServer()
-			wait (1)
+			wait (0)
 			game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("Swords")
-			wait (1)
+			wait (0)
 			game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("Backpacks")
-			wait (1)
+			wait (0)
 			game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("JumpBoosts")
-			wait (1)
+			wait (0)
 			game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("BossBoosts")
 
 		until shared.Enabled == false
