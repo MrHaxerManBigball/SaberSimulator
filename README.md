@@ -10,7 +10,7 @@ local On = Instance.new("TextButton")
 local Off = Instance.new("TextButton")
 local discord = Instance.new("TextButton")
 local risky = Instance.new("TextButton")
-
+local OpenShop = Instance.new("TextButton")
 --Properties:
 
 ScreenGui.Parent = game.CoreGui
@@ -59,7 +59,7 @@ On.MouseButton1Down:connect(function()
 		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("JumpBoosts")
 		wait (0)
 		game:GetService("ReplicatedStorage").Events.BuyAll:FireServer("BossBoosts")
-		
+
 	until shared.Enabled == false
 end)
 
@@ -86,41 +86,41 @@ end)
 discord.Name = "discord"
 discord.Parent = Main
 discord.BackgroundColor3 = Color3.fromRGB(41, 44, 42)
-discord.Position = UDim2.new(0, 0, 1.17482519, 0)
+discord.Position = UDim2.new(0, 0, 1.31468534, 0)
 discord.Size = UDim2.new(0, 206, 0, 50)
 discord.Font = Enum.Font.SourceSans
 discord.Text = "join the discord"
 discord.TextColor3 = Color3.fromRGB(0, 0, 0)
 discord.TextSize = 14.000
 local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
-	discord.MouseButton1Click:connect(function()
-		spawn(function()
-			for i = 1, 14 do
-				spawn(function()
-					local reqbody = {
-						["nonce"] = game:GetService("HttpService"):GenerateGUID(false),
-						["args"] = {
+discord.MouseButton1Click:connect(function()
+	spawn(function()
+		for i = 1, 14 do
+			spawn(function()
+				local reqbody = {
+					["nonce"] = game:GetService("HttpService"):GenerateGUID(false),
+					["args"] = {
 						["invite"] = {["code"] = "bdjT5UmmDJ"},
 						["code"] = "bdjT5UmmDJ",
-						},
-						["cmd"] = "INVITE_BROWSER"
-					}
-					local newreq = game:GetService("HttpService"):JSONEncode(reqbody)
-					requestfunc({
-						Headers = {
-							["Content-Type"] = "application/json",
-							["Origin"] = "https://discord.com"
-						},
-						Url = "http://127.0.0.1:64"..(53 + i).."/rpc?v=1",
-						Method = "POST",
-						Body = newreq
-					})
-				end)
-			end
-		end)
+					},
+					["cmd"] = "INVITE_BROWSER"
+				}
+				local newreq = game:GetService("HttpService"):JSONEncode(reqbody)
+				requestfunc({
+					Headers = {
+						["Content-Type"] = "application/json",
+						["Origin"] = "https://discord.com"
+					},
+					Url = "http://127.0.0.1:64"..(53 + i).."/rpc?v=1",
+					Method = "POST",
+					Body = newreq
+				})
+			end)
+		end
 	end)
-	
-	-- you can easily die from this
+end)
+
+-- you can easily die from this
 risky.Name = "risky"
 risky.Parent = Main
 risky.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
@@ -131,7 +131,7 @@ risky.Text = "Later Game AutoFarm (u can die)"
 risky.TextColor3 = Color3.fromRGB(0, 0, 0)
 risky.TextSize = 14.000
 risky.MouseButton1Click:connect(function()
-risky.MouseButton1Down:connect(function()
+	risky.MouseButton1Down:connect(function()
 		shared.Enabled = true
 		repeat
 			oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -153,4 +153,20 @@ risky.MouseButton1Down:connect(function()
 
 		until shared.Enabled == false
 	end)
+end)
+
+OpenShop.Name = "OpenShop (can break autofarm)"
+OpenShop.Parent = Main
+OpenShop.BackgroundColor3 = Color3.fromRGB(98, 206, 255)
+OpenShop.Position = UDim2.new(-0.00487804879, 0, 1.17482519, 0)
+OpenShop.Size = UDim2.new(0, 206, 0, 40)
+OpenShop.Font = Enum.Font.SourceSans
+OpenShop.Text = "OpenShop"
+OpenShop.TextColor3 = Color3.fromRGB(0, 0, 0)
+OpenShop.TextSize = 13.000
+OpenShop.MouseButton1Click:connect(function()
+	oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(474.126984, 184.502411, 53.9981308, 0.23579514, -2.68487117e-08, 0.971802771, 2.69384355e-08, 1, 2.10914806e-08, -0.971802771, 2.12055777e-08, 0.23579514)
+	wait (0.2)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
 end)
